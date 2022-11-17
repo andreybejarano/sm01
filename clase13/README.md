@@ -25,3 +25,14 @@ git commit -m "El mensaje de commit"
 
 ## Con este se suben los cambios al repositorio
 git push 
+```
+## Pasos para ser colaborador
+- Aceptar la invitación del dueño
+- Entrar al repositorio 
+- Copiar el link del repo
+- Entrar a la carpeta en la que quiero guardar los archivos
+- Abrir vsCode
+- Abrir la terminal
+- git clone *pego lo que copie antes*
+- cd nombreDeLaCarpeta
+- editar
