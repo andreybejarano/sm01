@@ -8,10 +8,20 @@ git remote add origin LINK_GIT
 git push -u origin main
 ```
 
-# Pasos para crear rama(Branch)
+## Pasos para crear rama(Branch)
 ``` shell
 ## Con este comando se crea una rama nueva a partir de otra rama
 git checkout -b NOMBRE_RAMA_A_CREAR
 ## Este comando es para subir una rama creada en local
 git push -u origin NOMBRE_RAMA_A_CREAR
 ```
+
+# Para agregar nuevos cambios y subirlos debo hacer:
+``` shell
+## puedo subir todos o si quiero uno tengo que escribir la ruta donde este
+git add .
+
+git commit -m "El mensaje de commit"
+
+## Con este se suben los cambios al repositorio
+git push 
