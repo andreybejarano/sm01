@@ -27,6 +27,7 @@ git commit -m "El mensaje de commit"
 git push 
 ```
 ## Pasos para ser colaborador
+``` 
 - Aceptar la invitación del dueño
 - Entrar al repositorio 
 - Copiar el link del repo
@@ -36,3 +37,4 @@ git push
 - git clone *pego lo que copie antes*
 - cd nombreDeLaCarpeta
 - editar
+```
