@@ -1,0 +1,50 @@
+[
+    {
+        "id" : 1,
+        "marca": "Olmo",
+        "modelo": "Regal",
+        "rodado": 26,
+        "anio": 2019,
+        "color": "Celeste",
+        "peso": 16,
+        "tipo": "Montañera",
+        "precio": 20000,
+        "vendida": true
+    },
+    {
+        "id" : 2,
+        "marca": "Olmo",
+        "modelo": "Regal",
+        "rodado": 26,
+        "anio": 2019,
+        "color": "Celeste",
+        "peso": 16,
+        "tipo": "Montañera",
+        "precio": 20000,
+        "vendida": false
+    },
+    {
+        "id" : 3,
+        "marca": "Olmo",
+        "modelo": "Regal",
+        "rodado": 26,
+        "anio": 2019,
+        "color": "Celeste",
+        "peso": 16,
+        "tipo": "Montañera",
+        "precio": 20000,
+        "vendida": true
+    },
+    {
+        "id" : 4,
+        "marca": "Olmo",
+        "modelo": "Regal",
+        "rodado": 26,
+        "anio": 2019,
+        "color": "Celeste",
+        "peso": 16,
+        "tipo": "Montañera",
+        "precio": 20000,
+        "vendida": false
+    }
+]

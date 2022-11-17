@@ -1,0 +1,28 @@
+- callbacks
+- ciclos, contadores, acumuladores
+- Objetos literales
+- modulos
+
+
+
+
+creo funcion saldosDeMesesConGanancia que recibe un parametro donde llega un array y esta debe devolver un array
+debo crear una variable auxiliar donde voy a almacenar las ganancias osea los valores positivos 
+y esta la voy a llamar saldos y su valor inicial va a ser un array vacio
+debo recorrer el array que me llega por parametro y dentro preguntar:
+    si el valor del elemento del array es mayor a 0 entonces:
+        a saldos tengo que agregarle el valor de ese elemento
+despues que termina de recorrer el array debo devolver saldos
+
+
+
+Creo la funcion laClaveSecreta que recibe por parametro un array el cual cada elemento del array es una letra de la clave
+detectamos que la clave esta escrita al revez y ademas tiene *
+tengo que recorrer el array para quitar los * y despues tengo que buscar la forma de invertir los elementos del array 
+que los primeros sean los ultimos y los ultmos los primeros despues tengo q convertir el array a un string
+despues retornamos ese string
+
+
+
+
+
