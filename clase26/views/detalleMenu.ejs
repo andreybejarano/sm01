@@ -1,0 +1,39 @@
+<%- include('partials/head') %>
+  </head>
+  <body>
+    <!-- Navbar (sit on top) -->
+    <%- include('partials/navbar') %>
+
+    <!-- Header -->
+    <%- include('partials/header') %>
+
+    <!-- Page content -->
+    <div class="ps-content">
+
+      <!-- Menu Section -->
+      <% if(plato !== undefined) { %>
+      <div class="ps-row ps-padding-64" id="menu">
+        <div class="ps-col l6 ps-padding-large">
+          <h1 class="ps-center"><%= plato.titulo %></h1>
+          <br />
+          <h4><%= plato.descripcionDetallada !== '' ? plato.descripcionDetallada : plato.descripcionCorta %></h4>
+          <p class="ps-text-grey">
+            U$S <%= plato.precio %> 
+          </p>
+        </div>
+
+        <div class="ps-col l6 ps-padding-large ps-img-menu">
+          <img
+            src="/images/<%= plato.img %>"
+            class="ps-round ps-image ps-opacity-min"
+            alt="Menu"
+          />
+        </div>
+      </div>
+      <% } else { %>
+        <h3 class="ps-center">Plato no encontrado</h3>
+      <% } %> 
+
+    </div>
+    <!-- Footer -->
+    <%- include('partials/footer') %>
