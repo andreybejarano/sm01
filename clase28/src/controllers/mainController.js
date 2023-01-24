@@ -13,7 +13,12 @@ const controller = {
 		res.render('index', { visited, inSale });
 	},
 	search: (req, res) => {
-		// Do the magic
+		const search = req.query.keywords;
+		const productsToSearch = products.filter(product => product.name.toLowerCase().includes(search));	
+		res.render('results', { 
+			products: productsToSearch, 
+			search
+		});
 	},
 };
 
