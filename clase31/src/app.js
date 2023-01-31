@@ -26,7 +26,9 @@ const logMiddleware = require('./middlewares/logMiddleware');
 app.use(logMiddleware);
 // ************ Route System require and use() ************
 const mainRouter = require('./routes/main');
+const adminRouter = require('./routes/admin');
 app.use('/', mainRouter);
+app.use('/admin', adminRouter);
 
 
 
