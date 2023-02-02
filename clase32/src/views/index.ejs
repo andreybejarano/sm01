@@ -7,9 +7,15 @@
     <title>Document</title>
 </head>
 <body>
+    <% if(locals.session?.name || locals.session?.color || locals.session?.email || locals.session?.age) { %>
+        <h2>Hola <%= session.name %> , elegiste el color: <%= session.color %> , tu email es: <%= session.email %> y tu edad es: <%= session.age %></h2>
+    <% } %>    
     <form action="/" method="post" autocomplete="off">
         <label for="name">Ingrese su nombre</label>
         <input type="text" id="name" name="name">
+        <% if(locals.errors?.name) { %>
+            <strong><%= errors.name.msg %></strong>
+        <% } %>     
         <label for="colors">Seleccione un color</label>
         <select name="color" id="colors">
             <option value="">Selecciona un color</option>
@@ -17,10 +23,19 @@
             <option value="yellow">Amarillo</option>
             <option value="blue">Azul</option>
         </select>
+        <% if(locals.errors?.color) { %>
+            <strong><%= errors.color.msg %></strong>
+        <% } %>
         <label for="email">Ingrese su email</label>
         <input type="email" name="email" id="email">
+        <% if(locals.errors?.email) { %>
+            <strong><%= errors.email.msg %></strong>
+        <% } %>
         <label for="age">Ingrese su edad</label>
         <input type="number" name="age" id="age">
+        <% if(locals.errors?.age) { %>
+            <strong><%= errors.age.msg %></strong>
+        <% } %>
         <button type="submit">Enviar</button>
     </form>
 </body>
