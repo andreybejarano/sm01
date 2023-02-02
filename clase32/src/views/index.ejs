@@ -7,6 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    Hola
+    <form action="/" method="post" autocomplete="off">
+        <label for="name">Ingrese su nombre</label>
+        <input type="text" id="name" name="name">
+        <label for="colors">Seleccione un color</label>
+        <select name="color" id="colors">
+            <option value="">Selecciona un color</option>
+            <option value="red">Rojo</option>
+            <option value="yellow">Amarillo</option>
+            <option value="blue">Azul</option>
+        </select>
+        <label for="email">Ingrese su email</label>
+        <input type="email" name="email" id="email">
+        <label for="age">Ingrese su edad</label>
+        <input type="number" name="age" id="age">
+        <button type="submit">Enviar</button>
+    </form>
 </body>
 </html>
