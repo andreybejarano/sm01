@@ -17,3 +17,8 @@ img{
 figure{
   width: 20%;
 }
+
+.error {
+  color: red;
+  font-style: italic;
+}

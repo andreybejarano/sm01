@@ -1,3 +1,5 @@
+const { validationResult } = require('express-validator');
+
 const db = require('../database/models');
 
 const controller = {
@@ -38,10 +40,26 @@ const controller = {
         res.render('recommendedMovies', { movies });
     }, //Aqui debemos modificar y completar lo necesario para trabajar con el CRUD
     add: async (req, res) => {
-        res.render('moviesAdd');  
+        res.render('moviesAdd');
     },
     create: async (req, res) => {
-        // TODO
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.render('moviesAdd', { errors: errors.mapped() });
+        }
+        const newMovie = {
+            title: req.body.title,
+            rating: req.body.rating,
+            awards: req.body.awards,
+            release_date: req.body.release_date,
+            length: req.body.length
+        };
+        try {
+            await db.Movie.create(newMovie);
+            return res.redirect('/movies');
+        } catch (error) {
+            return res.send({ error });
+        }
     }
 }
 
