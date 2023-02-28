@@ -1,4 +1,5 @@
 const { validationResult } = require('express-validator');
+const moment = require('moment');
 
 const db = require('../database/models');
 
@@ -47,15 +48,38 @@ const controller = {
         if (!errors.isEmpty()) {
             return res.render('moviesAdd', { errors: errors.mapped() });
         }
-        const newMovie = {
-            title: req.body.title,
-            rating: req.body.rating,
-            awards: req.body.awards,
-            release_date: req.body.release_date,
-            length: req.body.length
-        };
         try {
+            const newMovie = {
+                title: req.body.title,
+                rating: req.body.rating,
+                awards: req.body.awards,
+                release_date: req.body.release_date,
+                length: req.body.length
+            };
             await db.Movie.create(newMovie);
+            return res.redirect('/movies');
+        } catch (error) {
+            return res.send({ error });
+        }
+    },
+    edit: async (req, res) => {
+        try {
+            const movie = await db.Movie.findByPk(req.params.id);
+            res.render('moviesEdit', { Movie: movie });
+        } catch (error) {
+            return res.send({ error });
+        }
+    },
+    update: async (req, res) => {
+        try {
+            const movie = {
+                title: req.body.title,
+                rating: req.body.rating,
+                awards: req.body.awards,
+                release_date: req.body.release_date,
+                length: req.body.length
+            };
+            await db.Movie.update(movie, { where: { id: req.params.id } });
             return res.redirect('/movies');
         } catch (error) {
             return res.send({ error });

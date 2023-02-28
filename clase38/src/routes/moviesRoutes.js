@@ -29,6 +29,7 @@ router.get('/movies/recommended', moviesController.recomended);
 router.get('/movies/detail/:id', moviesController.detail);
 router.get('/movies/add', moviesController.add);
 router.post('/movies', createMovieValidator, moviesController.create);
-
+router.get('/movies/edit/:id', moviesController.edit);
+router.put('/movies/:id', moviesController.update);
 
 module.exports = router;
