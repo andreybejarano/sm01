@@ -17,8 +17,7 @@ const controller = {
             const movie = await db.Movie.findByPk(req.params.id, {
                 include: ['genre', 'actors']
             });
-            // res.render('moviesDetail', { movie });
-            return res.json(movie);
+            res.render('moviesDetail', { movie });
         } catch (error) {
             res.send({ error });
         }
@@ -86,6 +85,22 @@ const controller = {
             return res.redirect('/movies');
         } catch (error) {
             return res.send({ error });
+        }
+    },
+    delete: async (req, res) => {
+        try {
+            const movie = await db.Movie.findByPk(req.params.id);
+            res.render('moviesDelete', { Movie: movie });
+        } catch (error) {
+            return res.send(error);
+        }
+    },
+    destroy: async (req, res) => {
+        try {
+            await db.Movie.destroy({ where: { id: req.params.id } });
+            res.redirect('/movies');    
+        } catch (error) {
+            return res.send(error);
         }
     }
 }

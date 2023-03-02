@@ -31,5 +31,7 @@ router.get('/movies/add', moviesController.add);
 router.post('/movies', createMovieValidator, moviesController.create);
 router.get('/movies/edit/:id', moviesController.edit);
 router.put('/movies/:id', moviesController.update);
+router.get('/movies/delete/:id', moviesController.delete);
+router.delete('/movies/delete/:id', moviesController.destroy);
 
 module.exports = router;
