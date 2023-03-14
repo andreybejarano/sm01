@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator');
-const moment = require('moment');
+const { Op } = require("sequelize");
+const fetch = require('node-fetch');
 
 const db = require('../database/models');
 
@@ -98,9 +99,41 @@ const controller = {
     destroy: async (req, res) => {
         try {
             await db.Movie.destroy({ where: { id: req.params.id } });
-            res.redirect('/movies');    
+            res.redirect('/movies');
         } catch (error) {
             return res.send(error);
+        }
+    },
+    search: async (req, res) => {
+        try {
+            const { q } = req.query;
+            const movies = await db.Movie.findAll({
+                where: {
+                    title: { [Op.like]: `%${q}%` }
+                }
+            });
+            if (movies.length === 0) {
+                const url = `http://www.omdbapi.com/?s=${q}&type=movie&apikey=7581f363`;
+                const response = await fetch(url);
+                const data = await response.json();
+                if (data.Error) {
+                    return res.status(404).send({
+                        status: 404,
+                        message:'Pelicula no encontrada!'
+                    });
+                }
+                const moviesToStore = data.Search?.map(element => ({
+                    title: element.Title,
+                    rating: 1,
+                    awards: 1,
+                    release_date: `${element.Year}-01-01`
+                }));
+                const moviesCreated = await db.Movie.bulkCreate(moviesToStore);
+                return res.send(moviesCreated);
+            }
+            return res.send(movies);
+        } catch (error) {
+            return res.json({error});
         }
     }
 }

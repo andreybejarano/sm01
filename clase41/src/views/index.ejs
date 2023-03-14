@@ -10,5 +10,9 @@
     </figure>
     <h1><%= title %></h1>
     <p>Bienvenidos a <%= title %></p>
+    <form action="/movies/search" method="get">
+      <input type="text" name="q" placeholder="Nombre de pelicula">
+      <button type="submit">Buscar una pelicula</button>
+    </form>
   </body>
 </html>
