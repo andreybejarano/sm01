@@ -1,0 +1,13 @@
+.register-root {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.register-root .form {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+}

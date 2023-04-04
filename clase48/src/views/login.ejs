@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <div class="login-root">
+        <form action="/user/login" method="post" class="form">
+            <label for="txfEmail">E-mail</label>
+            <input type="text" name="email" id="txfEmail">
+            <label for="txfPassword">Contraseña</label>
+            <input type="password" name="password" id="txfPassword">
+            <% if(locals.errors?.unauthorize) { %>
+                <p class="error"><%= errors.unauthorize.msg %></p>
+            <% } %>
+            <button type="submit">Ingresar</button>
+        </form>
+    </div>
+</body>
+
+</html>
