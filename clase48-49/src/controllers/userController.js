@@ -40,6 +40,7 @@ const controller = {
     loginProcess: async (req, res) => {
         try {
             const user = await db.User.findOne({
+                include: ['role'],
                 where: {
                     email: req.body.email
                 }
@@ -50,9 +51,31 @@ const controller = {
             if (!bcrypt.compareSync(req.body.password, user.password)) {
                 return res.render('login', { errors: { unauthorize: { msg: 'Usuario y/o contraseña invalidos' } } });
             }
+            req.session.user = {
+                id: user.id,
+                email: user.email,
+                role: user.role.name,
+                name: user.name,
+                avatar: user.avatar
+            };
             res.redirect('/user');
         } catch (error) {
             res.send(error);
+        }
+    },
+    logout: (req, res) => {
+        delete req.session.user;
+        res.redirect('/');
+    },
+    profile: async (req, res) => {
+        try {
+            const user = await db.User.findByPk(req.session.user.id, {
+                attributes: { exclude: ['password'] },
+                include: ['role']
+            });
+            res.render('profile', { user: user.dataValues });
+        } catch (error) {
+
         }
     }
 };

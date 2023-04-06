@@ -4,6 +4,8 @@ const multer = require('multer');
 
 const userController = require('../controllers/userController');
 
+const authorizationMiddleware = require('../middlewares/authorization');
+
 const router = express.Router();
 
 const storage = multer.diskStorage({
@@ -21,10 +23,12 @@ const upload = multer({
     storage
 });
 
-router.get('/', userController.list);
+router.get('/', authorizationMiddleware, userController.list);
 router.get('/register', userController.register);
 router.post('/register', upload.single('avatar'), userController.create);
 router.get('/login', userController.login);
 router.post('/login', userController.loginProcess);
+router.get('/logout', userController.logout);
+router.get('/profile', authorizationMiddleware, userController.profile);
 
 module.exports = router;

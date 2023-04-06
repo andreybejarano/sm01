@@ -1,0 +1,23 @@
+<header class="header">
+    <ul class="menu">
+        <li><a href="/">Inicio</a></li>
+        <% if(!locals.session) {%>
+            <li><a href="/user/login">Login</a></li>
+            <li><a href="/user/register">Registro</a></li>
+        <%}%>
+        <% if(locals.session) {%>
+            <li><a href="/user">Lista de usuarios</a></li>
+            <li><a href="/user/profile">Perfil</a></li>
+        <%}%>
+    </ul>
+    <% if(locals.session) {%>
+        <div class="user-data">
+            <h5><%= locals.session.name %></h5>
+            <img class="avatar" src="/img/user/<%= locals.session.avatar %>" alt="">
+            <a href="/user/logout">
+                <button>Salir</button>
+            </a>
+        </div>
+    <%}%>
+    <div></div>
+</header>

@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
+    <%- include('partials/header') %>
     <div class="login-root">
         <form action="/user/login" method="post" class="form">
             <label for="txfEmail">E-mail</label>

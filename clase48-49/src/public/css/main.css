@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.header .menu {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.header .menu li {
+    list-style: none;
+}
+
+.user-data {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 16px;
+    background: blue;
+}
+
+.user-data .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}

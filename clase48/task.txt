@@ -1,5 +1,0 @@
-# 1 - Registro
-2 - login - sessions y cookies
-# 3 - lista
-4 - editar
-5 - eliminar
