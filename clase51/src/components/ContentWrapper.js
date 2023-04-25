@@ -4,6 +4,7 @@ import TopBar from "./TopBar";
 import ContentRowTop from "./ContentRowTop";
 import ContentRowMovies from "./ContentRowMovies";
 import Footer from "./Footer";
+import MoviesTable from "./MoviesTable";
 
 function ContentWrapper() {
     return (
@@ -21,6 +22,10 @@ function ContentWrapper() {
                 {/* <!--End Content Row Top--> */}
                 {/* <!-- Content Row Last Movie in Data Base --> */}
                 <ContentRowMovies></ContentRowMovies>
+                {/* <!-- End Content Row Movies --> */}
+                {/* <!-- Movies table --> */}
+                <MoviesTable></MoviesTable>
+                {/* <!-- End Movies table --> */}
             </div>
             {/* <!-- End of MainContent --> */}
 
