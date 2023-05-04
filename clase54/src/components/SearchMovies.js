@@ -7,7 +7,7 @@ function SearchMovies() {
 	const [movies, setMovies] = React.useState([]);
 	const [keyword, setKeyword] = React.useState('');
 
-	const getData = () => {
+	const getData = React.useCallback(() => {
 		fetch(`http://www.omdbapi.com/?s=${keyword}&apikey=${apiKey}`)
 			.then(res => res.json())
 			.then(data => {
@@ -18,11 +18,11 @@ function SearchMovies() {
 				}
 			})
 			.catch(err => console.log(err));
-	};
+	}, [keyword]);
 
 	React.useEffect(() => {
 		getData();
-	}, []);
+	}, [getData]);
 
 	const handleSearch = (e) => {
 		e.preventDefault();
@@ -44,7 +44,7 @@ function SearchMovies() {
 								<form onSubmit={handleSearch}>
 									<div className="form-group">
 										<label htmlFor="">Buscar por título:</label>
-										<input type="text" className="form-control" onChange={onChangeInput}/>
+										<input type="text" className="form-control" onChange={onChangeInput} />
 									</div>
 									<button className="btn btn-info">Search</button>
 								</form>
